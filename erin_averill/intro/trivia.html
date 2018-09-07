@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Trivia</title>
+	<meta charset="utf-8">
+	<!-- <link rel="stylesheet" type="text/css" href="trivia.css"> -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+</head>
+<body>
+	<a href="">Continue with new questions</a>
+	<h1>Trivia Night</h1> <h1>Points</h1>
+	<!-- <div id='question_geography'>
+		<h2>Geography</h2>
+		<p id='geo_q1'>100</p>
+		<p id='geo_q2'>200</p>
+		<p id='geo_q3'>300</p>
+	</div>
+	<div id='question_entertainment'>
+		<h2>Entertainment</h2>
+		<p id='ent_q1'>100</p>
+		<p id='ent_q2'>200</p>
+		<p id='ent_q3'>300</p>
+	</div> -->
+	<div id='question_science'>
+		<h2>Science</h2>
+		<p id='sci_q1'>100</p>
+		<p id='sci_q2'>200</p>
+		<p id='sci_q3'>300</p>
+	</div>
+	<script>
+		$('#sci_q1').click(function(){
+                $.get("https://opentdb.com/api.php?amount=1&category=17&difficulty=easy", function(res) {
+                	var answer = $.merge( [] ,res.results[0].incorrect_answers)
+                	answer.push(res.results[0].correct_answer)
+                	console.log(res.results[0].correct_answer, answer)
+                    var html_str = "";
+                    html_str += "<h4>" + res.results[0].question + "</h4>";
+                    html_str += "<form>"; 
+                    for(var i = 0; i < answer.length; i++) {
+                        html_str += "<input type='radio' >" + answer[Math.floor(Math.random()*answer.length)] + "<br>";
+                    }
+                    html_str += "</form>";
+
+                    $("#sci_q1").html(html_str);
+                }, "json");
+            })
+		$('#sci_q2').click(function(){
+                $.get("https://opentdb.com/api.php?amount=1&category=17&difficulty=medium", function(res) {
+                	var answer = $.merge( [] ,res.results[0].incorrect_answers)
+                	answer.push(res.results[0].correct_answer)
+                	console.log(res.results[0].correct_answer, answer)
+                    var html_str = "";
+                    html_str += "<h4>" + res.results[0].question + "</h4>";
+                    html_str += "<form>"; 
+                    for(var i = 0; i < answer.length; i++) {
+                        html_str += "<input type='radio' >" + answer[Math.floor(Math.random()*answer.length)] + "<br>";
+                    }
+                    html_str += "</form>";
+
+                    $("#sci_q2").html(html_str);
+                }, "json");
+            })		
+		$('#sci_q3').click(function(){
+                $.get("https://opentdb.com/api.php?amount=1&category=17&difficulty=hard", function(res) {
+                	var answer = $.merge( [] ,res.results[0].incorrect_answers)
+                	answer.push(res.results[0].correct_answer)
+                	// var rand_answer = [];
+                	// answer[Math.floor(Math.random()*answer.length)]
+                	console.log(res.results[0].correct_answer, answer)
+                    var html_str = "";
+                    html_str += "<h4>" + res.results[0].question + "</h4>";
+                    html_str += "<form>"; 
+                    for(var i = 0; i < answer.length; i++) {
+                        html_str += "<input type='radio' >" + answer[Math.floor(Math.random()*answer.length)] + "<br>";
+                    }
+                    html_str += "</form>";
+
+                    $("#sci_q3").html(html_str);
+                }, "json");
+            })
+		
+	</script>
+</body>
+</html>

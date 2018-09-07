@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Survey</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<h1>Fill out this survey!</h1>
+	<p><form action='/process' method='POST'>
+		Your name: <input type="text" name="name" ></p>
+
+		<p><label for="location">Location:</label>
+			<select name="location" id="location">
+				<option value="dallas">Dallas</option>
+				<option value="seattle">Seattle</option>
+				<option value="San Francisco">San Francisco</option>
+				<option value="new_york">New York</option>
+				<option value="moon">The moon</option>
+			</select>
+		</p>
+		<p><label for="favoriteLanguage">Favorite Language:</label>
+			<select name="favoritelanguage" id="favoritelanguage">
+				<option value="Javascript">Javascript</option>
+				<option value="Python">Python</option>
+				<option value="Ruby">Ruby</option>
+				<option value="C#">C#</option>
+				<option value="Unknown">Don't know</option>
+			</select>
+		</p>
+		<p>
+		<label for='textarea'>Comment (optional): </label>
+		<textarea type="text" name="comment"></textarea>
+		</p>
+		<p>
+		<input type="submit" value="Submit" name="button">
+		</p>		
+	</form>
+</body>
+</html>

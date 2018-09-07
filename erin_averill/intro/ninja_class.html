@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Ninja Class</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<script>
+		class Ninja{
+			constructor(name, health=100){
+				this.name = name;
+				this.health = health;
+				this.strength = 3;
+				this.speed = 3;
+			}
+			sayName(){
+				console.log(this.name);
+			}
+			showStats(){
+				console.log('Health is ' + this.health + '. Speed is ' + this.speed + '. Strength is ' + this.strength);
+			}
+			drinkSake(){
+				this.health += 10;
+			}
+		}
+
+		class Sensei extends Ninja {
+			constructor(name){
+				super(name);
+				this.speed = 10;
+				this.health = 200;
+				this.strength = 10;
+				this.wisdom = 10;
+			}
+			speakWisdom(){
+				super.drinkSake()
+				console.log('What one programmer can do in one month, two programmers can do in two months.')
+				
+			}
+		}
+		const superSensei = new Sensei("Master Splinter");
+		superSensei.speakWisdom();
+		superSensei.showStats();
+
+
+		// const ninja1 = new Ninja('Hyabusa');
+		// ninja1.sayName();
+		// ninja1.drinkSake();
+		// ninja1.showStats();
+
+		// function Ninja(name, health=100) {
+		// 	this.name = name;
+		// 	this.health = health; 
+		// 	var speed = 3;
+			// var strength = 3;
+
+			// this.ninja_speed = function() {
+			// 	return speed;
+			// }
+
+			// this.ninja_strength = function() {
+			// 	return strength;
+			// }
+			
+			// this.sayName = function(){
+			// 	console.log(this.name);
+			// 	//return this;
+			// };
+			// this.showStats = function() {
+			// 	console.log('Health is ' + this.health + '. Speed is ' + this.ninja_speed() + '. Strength is ' + this.ninja_strength());
+			// }
+			// this.drinkSake = function() {
+			// 	this.health += 10;
+			// }
+			// this.punch = function(opponent){
+			// 	if(opponent != this){
+			// 		opponent.health -= 5;
+			// 		console.log(opponent.name + ' was punched by' + this.name + ' and lost 5 health points!')
+			// 	}
+			// }
+			// this.kick = function(opponent){
+				// if(opponent != this){
+					// opponent.health = 15* this.ninja_strength();
+					// console.log(opponent.name + ' was kicked by ' + this.name + ' and lost ' + 15*this.ninja_strength() + ' health.')
+				//}
+			//}
+	//	}
+		//creates two ninjas who punch and kick each other
+
+		// var blueNinja = new Ninja("Goemon");
+		// var redNinja = new Ninja("Bill Gates");
+		// redNinja.punch(blueNinja);
+		// blueNinja.showStats();
+		// blueNinja.kick(redNinja);
+		// redNinja.showStats();
+
+
+		// creates a new ninja and logs their name, stats, and drinks sake to give 10 health points
+ 
+		// var ninja1 = new Ninja('Hyabusa');
+		// ninja1.sayName();
+		// ninja1.drinkSake();
+		// ninja1.showStats();
+
+
+
+
+
+	</script>
+</body>
+</html>

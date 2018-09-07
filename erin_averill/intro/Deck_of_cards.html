@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Deck of Cards</title>
+</head>
+<body>
+	<script>
+		class Card{
+			constructor(suit, value){
+				this.suit = suit;
+				this.value = value;
+
+				if(value == 1){
+					this.value_str = 'Ace';
+				}
+				if(value == 11){
+					this.value_str = 'Jack';
+				}
+				if(value == 12){
+					this.value_str = 'Queen';
+				}
+				if(value == 13){
+					this.value_str = 'King';
+				}
+				if(value == 2 ){
+					this.value_str = 'Two' ;
+				}
+				if(value == 3 ){
+					this.value_str = 'Three' ;
+				}
+				if(value == 4 ){
+					this.value_str = 'Four' ;
+				}
+				if(value == 5 ){
+					this.value_str = 'Five' ;
+				}
+				if(value == 6 ){
+					this.value_str = 'Six' ;
+				}
+				if(value == 7 ){
+					this.value_str = 'Seven' ;
+				}
+				if(value == 8 ){
+					this.value_str = 'Eight' ;
+				}
+				if(value == 9 ){
+					this.value_str = 'Nine' ;
+				}
+				if(value == 10 ){
+					this.value_str = 'Ten' ;
+				}
+				else('Need number between 1 and 13')
+			}
+			show_card(){
+				console.log('The suit is ' + this.suit + ' and the value is ' +this.value_str)
+			}
+		}
+
+		class Deck{
+			constructor(){
+				this.deck = [];
+			}
+			setup(){
+				// this.deck = [];
+				// const suit = ['Diamond', 'Spade', 'Club', 'Heart'];
+				// const val = [1,2,3,4,5,6,7,8,9,10,11,12,13];
+				// const val_str = ['Ace', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King']
+				const suit = ["Hearts", "Clubs", "Diamonds", "Spades"];
+		        const strValue = ["Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"];
+		        const numValue = [1,2,3,4,5,6,7,8,9,10,11,12,13]
+		        for (var i = 0, index = 0; i < 52; i++, index++){
+		            if (i % 13 == 0){
+		                index = 0;
+		            }
+            // console.log(Math.floor(i/13))
+            var card = new Card(suit[Math.floor(i/13)], strValue[index], numValue[index]);
+            this.deck.push(card);
+        }
+				// for(var i = 0; i<4; i++){
+				// 	for(var index = 0; index<13; index++){
+				// 		this.deck.push(new Card (suit[i], val[index], val_str[index]));
+				// 	}
+				// }
+				console.log(this.deck);
+				return this.deck;
+			}
+
+			shuffle(){
+				var array = this.deck;
+				var m = array.length, t, i;
+
+				while(m) {
+					i = Math.floor(Math.random() * m--);
+					t = array[m];
+					array[m] = array[i];
+					array[i] = t;
+				}
+				return array;
+			}
+
+			reset(){
+				if(this.deck.length == 52){
+					this.deck = [];
+					const suit = ['Diamond', 'Spade', 'Club', 'Heart'];
+					const val = [1,2,3,4,5,6,7,8,9,10,11,12,13];
+					const val_str = ['Ace', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King']
+					// for(var i=0, index=0; i<52; i++, index++){
+					// 	if(i % 13 == 0){
+					// 		index = 0;
+					// 	}
+					// 	var card = new Card(suit[Math.floor(1/13)],val[index],val_str[index])
+					// 	this.deck.push(card);
+					// 	console.log(this.deck);
+					// }
+					for(var i = 0; i<4; i++){
+						for(var index = 0; index<13; index++){
+							this.deck.push(new Card (suit[i], val[index], val_str[index]));
+						}
+					}
+					return this.deck;
+				}
+			}
+
+			deal(){
+				// var dealt = [];
+				var card = this.deck.pop();
+				console.log(card)
+				// dealt.push(card);
+				// //console.log(dealt)
+				return card;
+
+				//return this.deck.pop();
+			}
+		}
+
+		class Player{
+			constructor(name){
+				const self = this;
+				this.name = name;
+				this.hand = [];
+			}
+			draw(card){
+				this.hand.push(card);
+				return this.hand;
+			}
+			discard(){ 
+				return this.hand.pop()
+			}
+		}
+	const deck1 = new Deck();
+	deck1.setup();
+	deck1.shuffle();
+	const player1 = new Player('Me!');
+	player1.draw(deck1.deal())
+
+
+
+	</script>
+</body>
+</html>

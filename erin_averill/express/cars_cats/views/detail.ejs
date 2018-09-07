@@ -1,0 +1,14 @@
+<html lang="en">
+<head>
+	<title>Cats</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<img src="<%= cats.image %>">
+	<p>Hey I am <%= cats.name %> the cat</p>
+	<p> My favorite food is <%= cats.favorite_food %></p>
+	<p> I am <%= cats.age %> years old</p>
+	<p> I like to sleep <% for (var x in cats.sleep_spots) { %>
+	<%= cats.sleep_spots[x] %>, <% } %>
+</body>
+</html>

@@ -1,0 +1,35 @@
+div {
+	display: inline-block;	
+}
+
+div h2{
+	background-color: khaki;
+	margin: 5px;
+	width: 215px;
+	padding: 10px;
+	border-radius: 5px;
+	text-align: center;
+}
+
+div p{
+	background-color: LightSteelBlue;
+	width: 150px;
+	height: 150px;
+	text-align: center;
+	padding-top: 60px;
+	font-size: 20px;
+	border-radius: 5px;
+	border: ;
+}
+
+div#question_entertainment p{
+	margin-left: 35px; 
+}
+
+div#question_geography p{
+	margin-left: 35px; 
+}
+
+div#question_science p{
+	margin-left: 35px; 
+}
